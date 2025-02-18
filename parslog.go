@@ -83,10 +83,7 @@ func ReadLog() {
 		var strsplit []string = strings.Split(string(data[:n]), "\n")
 		for i := 0; i < len(strsplit); i++ {
 			if strings.Contains(strsplit[i], ErrorLog) {
-				rr := PostRequest(strsplit[i])
-				if rr.StatusCode != 200 {
-					panic(rr.StatusCode)
-				}
+				PostRequest(strsplit[i])
 			}
 		}
 	}
